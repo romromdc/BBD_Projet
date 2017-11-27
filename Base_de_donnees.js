@@ -6,10 +6,8 @@ var mongoose = require('mongoose');
  
 // On se connecte à la base de données
 // N'oubliez pas de lancer ~/mongodb/bin/mongod dans un terminal !
-mongoose.connect('mongodb://localhost/projet', function(err) {
-  if (err) { throw err; }
-});
- 
+mongoose.connect('mongodb://localhost/test', { useMongoClient: true });
+mongoose.Promise = global.Promise;
 // Création du schéma pour les commentaires
 var commentaireArticleSchema = new mongoose.Schema({
   pseudo : { type : String, match: /^[a-zA-Z0-9-_]+$/ },
