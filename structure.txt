@@ -1,0 +1,26 @@
+# Template de base
+use projet
+
+projet.clients
+	'_id'
+	'nom'
+	'prenom'
+	'argent'
+
+projet.items : 
+	'_id' (auto)
+	'nom'
+	'prix'
+	'description'
+	'Autre détails spécifique à un item'
+
+projet.paniers
+	'id_client'
+	'items' : [
+		{
+			id_item, 
+			nom,
+			prix
+		}, 
+		...
+		]
