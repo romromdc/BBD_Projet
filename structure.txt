@@ -1,6 +1,12 @@
 # Template de base
 use projet
 
+Description du pb des données et pq c'est intéressant d'utiliser une base de données NoSql
+
+projet.admin
+	'userName' 
+	'password'
+
 projet.clients
 	'_id'
 	'nom'
@@ -24,3 +30,11 @@ projet.paniers
 		}, 
 		...
 		]
+
+Agrégation --> Retourner le nombre d'articles qui correspondent à la recherche
+
+Fragmentation ou Réplication --> Fragmentation pour éviter pb de stockage et maj des données 
+
+Index --> type des données 
+
+Authentification --> Pas n'importe qui qui peut se connecter à la BDD --> Création de clients ( Différents rôles ? )
