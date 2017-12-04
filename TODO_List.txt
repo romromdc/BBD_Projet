@@ -1,0 +1,17 @@
+﻿				BDD Projet Todo List
+
+Etape 0 : Implementation totale de la BDD
+
+Etape 1 : Gestion des requêtes
+
+Etape 1Bis : IHM
+
+Etape 2 : Créations d'index
+
+Etape 3 : Aggrégation de données 
+
+Etape 4 : Type de distribution de données
+
+Etape 5 : La sécurité 
+
+
