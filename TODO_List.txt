@@ -1,8 +1,15 @@
 ﻿				BDD Projet Todo List
 
 Etape 0 : Implementation totale de la BDD
+	--> 3 collections différentes items, clients, paniers
+	--> création de profils items, clients, paniers 
+	--> Ajout d'items, clients et paniers différents à la BDD
 
 Etape 1 : Gestion des requêtes
+	--> Requête pour retrouver tous les noms de produits différents de la collection items 
+	--> Requête pour retrouver tous les documents de la collections clients 
+	--> Requête pour retrouver toutes les valeurs prises par l'attributs de la collection items passé en paramètre de la requête 
+	--> Requête pour retourver tous les items qui ont l'attributs "attr" passer en paramètres de la requête
 
 Etape 1Bis : IHM
 
