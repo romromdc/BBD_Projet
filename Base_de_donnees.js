@@ -22,16 +22,22 @@ var clientSchema = new mongoose.Schema({
 var ClientModel = mongoose.model('clients', clientSchema);
  
 // On crée une instance du Model client
-var monClient= new ClientModel({ nom : 'Boi', prenom : 'Romain', pseudo : 'Romrom', argent: 10000 });
+var monClient1= new ClientModel({ nom : 'Boi', prenom : 'Romain', pseudo : 'Romrom', argent: 10000 });
+var monClient2= new ClientModel({ nom : 'Toloza', prenom : 'Tania', pseudo : 'Tolta', argent: 50000 });
+
 
 // On sauvegarde le client dans MongoDB !
-monClient.save(function (err) {
+monClient1.save(function (err) {
 	if (err) { throw err; }
 		console.log('Client ajouté avec succès !');
 		mongoose.connection.close();
 }); 
 
-
+monClient2.save(function (err) {
+	if (err) { throw err; }
+		console.log('Client ajouté avec succès !');
+		mongoose.connection.close();
+}); 
 /********** Partie Création des items **********/
 
 // Création du schéma pour les items
@@ -39,6 +45,8 @@ var itemSchema = new mongoose.Schema({
 	nom : { type : String, match: /^[a-zA-Z0-9-_]+$/ },
 	prix : Number,
 	description : String,
+	type : String,
+	categorie : String,
 	date : { type : Date, default : Date.now }
 });
 
@@ -46,11 +54,22 @@ var itemSchema = new mongoose.Schema({
 var ItemModel = mongoose.model('items', itemSchema);
  
 // On crée une instance du Model item
-var monItem= new ItemModel({ nom : 'voiture', prix : 100 });
-monItem.description = "Une très belle voiture rouge toute neuve";
+var monItem1= new ItemModel({ nom : 'voiture', prix : 100 });
+monItem1.description = "Une très belle voiture rouge toute neuve";
+
+var monItem2= new ItemModel({ nom : 'NHL18', prix : 40 });
+monItem2.description = "jeux vidéo d'occasion";
+monItem2.type = "jeux"
+monItem2.categorie = "sport"
+
 
 // On sauvegarde l'item dans MongoDB !
-monItem.save(function (err) {
+monItem1.save(function (err) {
+	if (err) { throw err; }
+  		console.log('Item ajouté avec succès !');
+}); 
+
+monItem2.save(function (err) {
 	if (err) { throw err; }
   		console.log('Item ajouté avec succès !');
 }); 
@@ -68,11 +87,20 @@ var panierSchema = new mongoose.Schema({
 var PanierModel = mongoose.model('paniers', panierSchema);
  
 // On crée une instance du Model panier
-var monPanier= new PanierModel({ id_client : monClient._id });
-monPanier.items = { id_item : monItem._id, nom : monItem.nom, prix : monItem.prix};
+var monPanier1= new PanierModel({ id_client : monClient1._id });
+monPanier1.items = { id_item : monItem1._id, nom : monItem1.nom, prix : monItem1.prix};
+
+var monPanier2= new PanierModel({ id_client : monClient2._id });
+monPanier2.items = { id_item : monItem2._id, nom : monItem2.nom, prix : monItem2.prix};
+
 
 // On sauvegarde le panier dans MongoDB !
-monPanier.save(function (err) {
+monPanier1.save(function (err) {
+	if (err) { throw err; }
+		mongoose.connection.close();
+		console.log('Panier ajouté avec succès !'); 
+}); 
+monPanier2.save(function (err) {
 	if (err) { throw err; }
 		mongoose.connection.close();
 		console.log('Panier ajouté avec succès !'); 
